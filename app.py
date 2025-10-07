@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-# Initialize OpenAI client (Make sure OPENAI_API_KEY is set in Render environment variables)
+# Initialize OpenAI client
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 @app.route("/")
@@ -15,7 +15,6 @@ def home():
 def chat():
     user_message = request.json.get("message")
 
-    # System prompt for your university assistant
     system_prompt = """
     You are KibuAI, an intelligent virtual assistant designed for Kibu University students. 
     You have deep knowledge about:
